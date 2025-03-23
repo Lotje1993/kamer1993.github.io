@@ -342,6 +342,12 @@
 			background-size: 120%!important;
 		}
 
+		#imagecontainter-why {
+			background: url("../img/why.webp") center no-repeat #ededed;
+			height: 475px;
+			background-size: 120%!important;
+		}
+
 	/*//////////////////////////////////////////////////////////////////////////Content Projectpagina's*/
 
 	.mainprojecten {
