@@ -1,0 +1,508 @@
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Table of contents*/
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Reset*/
+	/* http://meyerweb.com/eric/tools/css/reset/
+	   v2.0 | 20110126
+	   License: none (public domain)
+	*/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Body*/
+
+	body {
+	    display: grid;
+	    grid-template-columns: [first] 5% [line2] auto [col4-start] 5% [end];
+	    grid-template-rows: [row1-start] 150px [row1-end] auto [third-line] 5% [last-line];
+	    /*header 5%| main content auto |footer 5%*/
+	    height: 100vh;
+	    /*100% viewport height*/
+	  	/*grid-template-areas:
+		    "header header header header header"
+		    ". main main main main . "
+		    "footer footer footer footer footer";*/
+	}
+
+	@media screen and (max-width: 450px) {
+		body {
+			grid-template-columns: [first] 3% [line2] auto [col4-start] 3% [end];
+		}
+
+		main {
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))!important;
+		}
+	}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Typography*/
+
+	body {
+		font-family: "Nunito";
+	}
+
+
+	h1, h2, h6, a {
+		color: #2F2F2F;
+		line-height: calc(1.5rem + .6vh);
+	}
+
+	p, li {
+		color: #2F2F2F;
+		line-height: calc(1.5rem + .6vh);
+		font-weight: 300;
+	}
+
+	h1 {
+		font-size: calc(1.3rem + .6vh);
+		font-weight: 800;
+	}
+
+	h2, h3, h4, h5 {
+		font-weight: 600;
+	}
+
+	h2 {
+		font-size: calc(1rem + .1vh);
+	}
+
+		a h2 {
+			padding-top: 8px;
+		}
+
+	h3 {
+		font-size: calc(1rem + .1vh);
+		line-height: 2rem;
+		padding-left: 10px;
+	}
+
+	h4 {
+		font-size: calc(.8rem + .1vh);
+		margin-top: .4rem;
+    padding-left: 10px;
+    color: #DD5F75;
+	}
+
+	h5 {
+		font-size: calc(.8rem + .1vh);
+		line-height: 2rem;
+		margin-top: 1rem;
+		padding-left: 10px;
+	}
+
+	h6 {
+		font-weight: 400;
+	}
+
+	.paragraph {
+		margin: 20px 0px;
+	}
+
+	.paragraph p {
+		padding: 2px 10px;
+	}
+
+	.mini-paragraph {
+		margin-bottom: 20px;
+	}
+
+	em {
+		font-weight: 600;
+	}
+
+
+	p {
+		margin-top: .4rem;
+    margin-bottom: .4rem;
+    padding: 0px 0px 0px 10px;
+	}
+
+		.detailParagraph {
+			margin: 0 0 32px;
+		}
+
+
+	a {
+		text-decoration: none;
+		font-size: calc(1rem + .1vh);
+		padding-right: calc(.4rem + .1vw)
+	}
+
+			a:hover {
+				cursor: pointer;
+				color: #000;
+				text-decoration: underline!important;
+			}
+
+			a:hover #titleName {
+				text-decoration: underline!important;
+				text-decoration-color: #DD5F75!important;
+			}
+
+	ul {
+		list-style-type: square;
+	}
+
+	li {
+		margin-left: 2rem;
+		/* padding: 10px; */
+	}
+
+	.wrapper > h4 {
+    margin: 16px 0px 0px 0px;
+	}
+
+	.wrapper > p {
+		margin-top: 0px;
+    padding-top: 8px;
+	}
+
+	.date {
+		color: #DD5F75;
+	}
+
+/* Divider and other decorations */
+
+.divider {
+	 display: flex;
+	 align-items: center;
+	 text-align: center;
+	 margin: 20px 0;
+	 color: #DD5F75;
+	}
+
+	.divider::before, .divider::after {
+	  content: '';
+	  flex: 1;
+	  border-bottom: 0px solid #DD5F75;
+		border-style: dashed;
+		}
+
+	  .divider::before {
+	    margin-right: 10px; /* Space between line and icon */
+	  }
+
+	  .divider::after {
+	    margin-left: 10px; /* Space between line and icon */
+	  }
+
+	  .divider span {
+	      font-size: 24px; /* Customize the size of the dog icon */
+	  }
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Header*/
+	/*header area, even breed als de pagina*/
+	header {
+		grid-area: 1/ line2 / 1 / 3;
+		display: grid;
+    	/*grid-template-columns: auto 30% auto;*/
+    	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    	grid-template-rows: 100px;
+		padding-top: 1.6vh;
+	}
+
+
+	#nametag a {
+		color: #DD5F75;
+		margin-top: 2.5rem;
+		font-weight: 800;
+	}
+
+	header h1:first-child {
+			color: #DD5F75;
+			margin-top: 2.5rem;
+			font-weight: 800;
+		}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Content*/
+	nav {
+	    margin-top: .6rem;
+	    justify-self: end;
+	    align-self: end;
+	}
+
+		#active {
+			font-weight: 800;
+			color: #DD5F75;
+		}
+
+
+		@media screen and (max-width: 1111px) {
+			nav {
+				justify-self: start;
+			}
+		}
+
+		@media screen and (min-width: 1667px) {
+			nav {
+				grid-area: 1 / 2 / last-line / 4;
+			}
+		}
+
+		@media screen and (min-width: 2223px) {
+			nav {
+				grid-area: 1 / 2 / col4-start / 5;
+			}
+		}
+
+	#introduction {
+		grid-area: 2 / 2/ span 1;
+		margin-top: 4rem;
+		margin-bottom: 1rem;
+	}
+
+	main {
+		grid-area: 2 / 2/ span 1;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(398px, 1fr));
+		grid-template-rows: 524px 524px 524px;
+		grid-gap: 2rem;
+		margin-top: calc(1rem + 3.1vh);
+	}
+
+	.IC-projectPage {
+		grid-column: 1 / 2;
+		grid-row: 2 / 1;
+		/* background: lightgrey; */
+	}
+
+	#AboutMe .IC-projectPage {
+    background: url("../img/karen.jpeg") no-repeat;
+		margin-top: 24px;
+		background-position-x: -459px;
+	}
+
+	@media screen and (max-width: 1144px) {
+		#AboutMe .IC-projectPage {
+			/* background-position-x: -478px;
+        background-position-y: -300px; */
+        background-size: 150%;
+		}
+	}
+
+	@media screen and (max-width: 1021px) {
+		#AboutMe .IC-projectPage {
+			/* background-position-x: -478px;
+				background-position-y: -300px; */
+				background-size: 200%;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		#AboutMe .IC-projectPage {
+			background-position-x: -380px;
+				background-size: 230%;
+		}
+	}
+
+		#imagecontainter-sk {
+			background: url("../img/sneeuwkonijn.webp") center no-repeat #ededed;
+			height: 475px;
+			background-size: 120%!important;
+		}
+
+	/*//////////////////////////////////////////////////////////////////////////Content Projectpagina's*/
+
+	.mainprojecten {
+		grid-area: 2 / 2/ span 1;
+		display: grid;
+		grid: auto-flow / 500px 1fr;
+		grid-gap: 2rem;
+		margin-top: calc(1rem + 0.1vh);
+	}
+
+		#imagecontainterlefvproject {
+			background: url("../img/pic05.jpg") center no-repeat;
+			background-size: 135%;
+			height: 475px;
+		}
+
+		#imagecontaintersilberfuchsproject {
+			background: url("../img/pic02.png")  center no-repeat #ededed;
+			background-size: 108%!important;
+		}
+
+		#imagecontainterbackrubproject {
+			background: url("../img/mockup-backrub.png")  center no-repeat;
+			background-size: 116%!important;
+			height: 475px;
+		}
+
+		#imagecontaintermhdproject {
+			background: url("../img/mhd.png")  center no-repeat;
+			background-size: 116%!important;
+			height: 475px;
+		}
+
+		#mhd-feed, #mhd-bocs, #mhd-test, #mhd-score {
+			height: 300px;
+		}
+
+		#mhd-feed {
+			background: url("../img/news-feed.png")  center no-repeat;
+			background-size: 100%!important;
+		}
+
+		#mhd-bocs {
+			background: url("../img/y-bocs.png")  center no-repeat;
+			background-size: 90%!important;
+		}
+
+
+		#mhd-test {
+			background: url("../img/the-test.png")  center no-repeat;
+			background-size: 100%!important;
+		}
+
+
+		#mhd-score {
+			background: url("../img/result.png")  center no-repeat;
+			background-size: 85%!important;
+		}
+
+
+	.bread a {
+		font-family: 'Roboto', Open-sans, sans-serif;
+	}
+
+			.projectuitleg {
+				margin-top: 1.4rem;
+				max-width: 60rem;
+			}
+
+			.column {
+				margin: 20px 0px 20px 0px;
+			}
+
+				.column h3 {
+					padding: 0px;
+				}
+
+
+				@media screen and (min-width: 1900px) {
+					.mainprojecten {
+						margin: 0 auto;
+					}
+
+					img {
+						width: 45rem;
+					}
+				}
+
+				@media screen and (max-width: 1200px) {
+					.mainprojecten {
+						grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+						grid-template-rows: 550px auto;
+					}
+				}
+
+				@media screen and (min-width: 1170px) {
+					.projectuitleg {
+						margin-top: 3.4rem;
+					}
+				}
+
+				@media screen and (max-width: 600px) {
+					.mainprojecten {
+						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+					}
+
+					.seductive-design-explanation {
+						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+					}
+				}
+
+				@media screen and (max-width: 500px) {
+					header {
+						grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+					}
+
+					main {
+						grid-template-rows: 420px 420px 420px;
+					}
+
+					.mainprojecten {
+						grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+						grid-template-rows: 420px auto;
+					}
+
+					#imagecontainer-sk {
+						height: 300px;
+					}
+				}
+
+		.img {
+			width: 100%;
+		}
+
+
+	/*//////////////////////////////////////////////////////////////////////////Content about me*/
+
+	.card-container {
+			/* display: grid; */
+    	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    	grid-template-rows: auto;
+    	margin-top: 1rem;
+    	grid-gap: 2rem;
+	}
+
+		.card-container h3 {
+			padding-top: 10px
+		}
+
+		.card-container div {
+			/* background: #F2CCD9; */
+			border: 2px dashed #DD5F75;
+    	padding: 16px;
+			margin-bottom: 1rem;
+			border-radius: 40px;
+		}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Footer*/
+
+	footer {
+		grid-area: 3 / span 3;
+		padding-top: 15px;
+  		/*background: blue;*/
+	}
